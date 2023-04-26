@@ -14,9 +14,14 @@
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Sort By
     </button>
+    <#if currentPage == 1>
+        <button type="button" class="btn btn-outline-primary" href="/home?page=${currentPage + 1}"><a href="/home?page=${currentPage + 1}">Next</a></button>
+        <#else>
+            <button type="button" class="btn btn-outline-primary" href="/home?page=${currentPage - 1}"><a href="/home?page=${currentPage - 1}">Prev</a></button>
+            <button type="button" class="btn btn-outline-primary" href="/home?page=${currentPage + 1}"><a href="/home?page=${currentPage + 1}">Next</a></button>
+    </#if>
 
-    <button type="button" class="btn btn-outline-primary" href="/home?page=${currentPage - 1}"><a href="/home?page=${currentPage - 1}">Prev</a></button>
-    <button type="button" class="btn btn-outline-primary" href="/home?page=${currentPage + 1}"><a href="/home?page=${currentPage + 1}">Next</a></button>
+
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="/home?page=${currentPage}">Default</a>
         <a class="dropdown-item" href="/home?sort=date,desc&page=${currentPage}">By Date Descending</a>
